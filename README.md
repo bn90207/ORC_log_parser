@@ -134,3 +134,17 @@
 2. dest_dir: 整理過的log輸出的路徑。
 3. left_meas_dir: 左側曝光機alignment settings(measure.ini)存放的路徑。
 4. right_meas_dir: 右側曝光機alignment settings(measure.ini)存放的路徑。
+
+## 3.小工具
+### 3-1.String to Binary
+![picture alt](https://github.com/bn90207/ORC_log_parser/blob/master/illustrations/search_keys.png?raw=true)
+
+在collector的說明中，提到了collector其實只是簡單地執行關鍵字的搜尋，並且在2-2節中說明了各個關鍵字的來源。但實際上，要在system log內搜尋這些關鍵字還需要注意system log的編碼。原始的system log是使用常見的UTF8編碼，然而C++的STL中並未提供UTF8編碼。當我們從system log內讀入非ASCII table上的字元時，會成為亂碼無法比對。
+
+在程式中的解決辦法是將每行讀入後轉為binary string。同樣地，將我們待搜尋的關鍵字也預先轉為binary string。當逐行搜尋關鍵字時，就是尋找轉成binary string的關鍵字，在同樣轉成binary string的文件中存不存在。
+
+如上圖中，每個變數key(關鍵字)包含兩個成員: 一個是參數名稱、另一個就是轉成binary string的二進位表示。
+
+![picture alt](https://github.com/bn90207/ORC_log_parser/blob/master/illustrations/string_to_binary.png?raw=true)
+
+當曝光機經過版本更新，或是有了新型號的機台，system log內的關鍵字也可能有些微變化(ex: 2-2-4.Mark info.)。在tools內提供簡單的程式能將字串轉成binary string。只要開啟一個記事本取名為"string.txt"，將待轉換的字串貼上，程式會將轉換後的binary string輸出在名為"binary.txt"的文字檔。

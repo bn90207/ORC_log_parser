@@ -58,7 +58,7 @@
 #### 2-2-4.Mark Info
 ![picture alt](https://github.com/bn90207/ORC_log_parser/blob/master/illustrations/mark%20info.png?raw=true)
 
-接下來我們要找到job settings內剩餘的項目，也就是靶點樣式。先搜尋"mark info."，在當行前方會有著left/right的字串，代表緊接著搜尋到的靶點樣式是屬於左側還是右側機台。確認後在搜尋"DecideMarkPosition"。
+接下來我們要找到job settings內剩餘的項目，也就是靶點樣式。先搜尋"mark info."，在當行前方會有著left/right的字串，代表緊接著搜尋到的靶點樣式是屬於左側還是右側機台。確認後再搜尋"DecideMarkPosition"。
 
 ![picture alt](https://github.com/bn90207/ORC_log_parser/blob/master/illustrations/mark_type.png?raw=true)
 
@@ -120,4 +120,17 @@
 
 在示意圖中，為減少文字有稍作簡化。真正備存檔上的修改時間如上圖，包含各兩碼的西元年月日時分秒。假設今天在system log上找到的檔案名稱為Z(M)1.ini、生產時間為170222235900，依上圖我們應讀取Z(M)1_170223005757.backup。
 
+### 2-3.Collector 輸出格式
+![picture alt](https://github.com/bn90207/ORC_log_parser/blob/master/illustrations/parsed_system_log.png?raw=true)
 
+輸出格式仿照alignment log與product log使用csv檔，首行為各項參數名稱。為方便與原始system log做比對，輸出的檔名為原始檔名+(meas_in_file_parsed)。
+
+### 2-4.Collector 使用說明
+![picture alt](https://github.com/bn90207/ORC_log_parser/blob/master/illustrations/collector_dir_path.png?raw=true)
+
+使用前依需求修改以下路徑:
+
+1. source_dir: system log(dxpcon.log)存放的路徑。
+2. dest_dir: 整理過的log輸出的路徑。
+3. left_meas_dir: 左側曝光機alignment settings(measure.ini)存放的路徑。
+4. right_meas_dir: 右側曝光機alignment settings(measure.ini)存放的路徑。

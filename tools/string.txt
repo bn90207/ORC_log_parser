@@ -1,0 +1,35 @@
+﻿
+※縮放計測需要在下列條件下實施：
+    作業名稱 : 
+===== DI-right(0) Recipe Parameters =====
+===== DI-left(1) Recipe Parameters =====
+Saved Z:\DXP3301\FS_right\Config\seqcounter.txt
+Saved Z:\DXP3301\FS_left\Config\seqcounter.txt
+$LOT      = 
+$SEQUENCE = 
+LightPosition    = 
+MeasIniFile      =  
+Enter plcAlignSock_OnAlignMeasEvent di_no=left(1)
+Enter plcAlignSock_OnAlignMeasEvent di_no=right(0)
+Exit  plcAlignSock_OnAlignMeasEvent di_no = 
+Mark[
+マーク元画像を保存しました。 
+DecideMarkPosition
+=== [di_no=left(1)] Mark info. ===
+=== [di_no=right(0)] Mark info. ===
+AlignRingLight   = 0, 
+AlignRingLight   = 1, 
+AlignRingLight   = 2, 
+AlignVertLight   = 0, 
+AlignVertLight   = 1, 
+AlignVertLight   = 2, 
+AlignRingLight2  = 0, 
+AlignRingLight2  = 1, 
+AlignRingLight2  = 2, 
+Mark NotFound
+===== DI-right(1) Recipe Parameters =====
+===== DI-left(0) Recipe Parameters =====
+Enter plcAlignSock_OnAlignMeasEvent di_no=left(0)
+Enter plcAlignSock_OnAlignMeasEvent di_no=right(1)
+=== [di_no=left(0)] Mark info. ===
+=== [di_no=right(1)] Mark info. ===
